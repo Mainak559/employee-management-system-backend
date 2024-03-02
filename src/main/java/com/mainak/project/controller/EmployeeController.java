@@ -12,7 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 @RestController
 @CrossOrigin(origins="https://employeemanagementsystem-mainakhalder.azurewebsites.net") // Applied at the class level
-@RequestMapping("/api/v1/")
+//@RequestMapping("/api/v1/")
 public class EmployeeController {
 
     private EmployeeService employeeService;
