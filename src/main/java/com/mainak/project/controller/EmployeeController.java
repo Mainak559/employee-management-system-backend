@@ -11,7 +11,7 @@ import java.util.List;
 
 @AllArgsConstructor
 @RestController
-@CrossOrigin(origins = "http://localhost:3000") // Applied at the class level
+@CrossOrigin(origins = "https://employeemanagementsystem-mainakhalder.azurewebsites.net") // Applied at the class level
 @RequestMapping("/api/v1/employees")
 public class EmployeeController {
 
