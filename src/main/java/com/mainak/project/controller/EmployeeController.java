@@ -11,35 +11,35 @@ import java.util.List;
 
 @AllArgsConstructor
 @RestController
-@CrossOrigin(origins = "https://employeemanagementsystem-mainakhalder.azurewebsites.net") // Applied at the class level
-@RequestMapping("/api/v1/employees")
+@CrossOrigin(origins="https://employeemanagementsystem-mainakhalder.azurewebsites.net") // Applied at the class level
+@RequestMapping("/api/v1/")
 public class EmployeeController {
 
     private EmployeeService employeeService;
 
     // Build Add Employee REST API
-    @PostMapping
+    @PostMapping("/employees")
     public ResponseEntity<EmployeeDto> createEmployee(@RequestBody EmployeeDto employeeDto) {
         EmployeeDto savedEmployee = employeeService.createEmployee(employeeDto);
         return new ResponseEntity<>(savedEmployee, HttpStatus.CREATED);
     }
 
     // Build Get Employee REST API
-    @GetMapping("{id}")
+    @GetMapping("/employees/{id}")
     public ResponseEntity<EmployeeDto> getEmployeeById(@PathVariable("id") Long employeeId) {
         EmployeeDto employeeDto = employeeService.getEmployeeById(employeeId);
         return ResponseEntity.ok(employeeDto);
     }
 
     // Build Get All Employees REST API
-    @GetMapping
+    @GetMapping("/employees")
     public ResponseEntity<List<EmployeeDto>> getAllEmployees() {
         List<EmployeeDto> employees = employeeService.getAllEmployees();
         return ResponseEntity.ok(employees);
     }
 
     // Build Update Employee REST API
-    @PutMapping("{id}")
+    @PutMapping("/employees/{id}")
     public ResponseEntity<EmployeeDto> updateEmployee(@PathVariable("id") Long employeeId,
             @RequestBody EmployeeDto updatedEmployee) {
         EmployeeDto employeeDto = employeeService.updateEmployee(employeeId, updatedEmployee);
@@ -47,7 +47,7 @@ public class EmployeeController {
     }
 
     // Build Delete Employee REST API
-    @DeleteMapping("{id}")
+    @DeleteMapping("/employees/{id}")
     public ResponseEntity<String> deleteEmployee(@PathVariable("id") Long employeeId) {
         employeeService.deleteEmployee(employeeId);
         return ResponseEntity.ok("Employee deleted successfully!.");
