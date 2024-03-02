@@ -10,7 +10,8 @@ public class GlobalCORSConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("http://localhost:3000") // Adjust the origin as needed
+                .allowedOrigins("https://employeemanagementsystem-mainakhalder.azurewebsites.net") // Adjust the origin
+                                                                                                   // as needed
                 .allowedMethods("*") // Allow all HTTP methods
                 .allowedHeaders("*"); // Allow all headers
     }
